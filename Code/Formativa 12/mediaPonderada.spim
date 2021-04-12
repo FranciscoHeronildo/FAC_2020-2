@@ -1,0 +1,24 @@
+.data
+barran:	.asciiz"\n"
+
+.text
+main:	li $v0, 5
+	syscall
+	move $t0, $v0 #N inteiro
+	
+while:	li $v0, 6
+	syscall
+	mov.s $f1, $f0 #pi: peso da i-esima parcela da media
+	
+	li $v0, 6
+	syscall
+	mov.s $f2, $f0 #ri:i-esimo valor da media
+		
+	mul.s $f3, $f2, $f1 #f1*f2=f3
+	add.s $f4, $f1, $f3 #f1+f3=f4
+	
+	bnez $t0, while
+
+	li $v0, 10
+	syscall
+	
