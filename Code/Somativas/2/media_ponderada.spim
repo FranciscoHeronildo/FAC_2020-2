@@ -1,0 +1,9 @@
+    .data
+flutuante: .float 0.000
+barran: .asciiz"\n"
+    
+    .text
+main:   li $v0, 6
+        syscall # distancia
+       	lwc1 $f1, flutuante
+       	add.s $f2, $f1, $f0
